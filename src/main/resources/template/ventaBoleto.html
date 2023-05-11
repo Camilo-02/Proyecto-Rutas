@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Venta de Boletas</title>
+  <!-- Enlaces a los archivos de estilos de Bootstrap -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+<!-- Barra de navegación -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">Taquillera de Ruta</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" href="http://localhost:63342/Rutas/demo/template/interface.html?_ijt=ripcrl5brm24ev9q4lanmnt9g&_ij_reload=RELOAD_ON_SAVE#">Inicio</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Boletos <span class="sr-only">(actual)</span></a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<div class="container mt-4">
+  <h1 class="text-center mb-4">Venta de Boletas</h1>
+  <form action="#" method="POST">
+    <div class="form-group">
+      <label for="nombre">Nombre Completo:</label>
+      <input type="text" class="form-control" id="nombre" name="nombre" required>
+    </div>
+    <div class="form-group">
+      <label for="lugar_destino">Destino:</label>
+      <select class="form-control" id="lugar_destino" name="lugar_destino" required>
+        <option value="">Seleccionar</option>
+        <option value="tarjeta">Ibague</option>
+        <option value="tarjeta">Garzon</option>
+        <option value="tarjeta">Bogota</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="telefono">Teléfono:</label>
+      <input type="tel" class="form-control" id="telefono" name="telefono" required>
+    </div>
+    <div class="form-group">
+      <label for="num_boletas">Número de Boletas:</label>
+      <input type="number" class="form-control" id="num_boletas" name="num_boletas" min="1" max="10" required>
+    </div>
+    <div class="form-group">
+      <label for="metodo_pago">Método de Pago:</label>
+      <select class="form-control" id="metodo_pago" name="metodo_pago" required>
+        <option value="">Seleccionar</option>
+        <option value="tarjeta">Tarjeta de Crédito</option>
+        <option value="tarjeta">Efectivo</option>
+      </select>
+    </div>
+    <div>
+      <button>comprar</button>
+    </div>
+  </form>
+</div>

@@ -1,5 +1,4 @@
 package com.example.CrudSpringBoot.modelo;
-
 import javax.persistence.*;
 
 @Entity
@@ -36,7 +35,7 @@ public class Cliente {
 
     public String getDestino() {return destino;}
 
-    public void setDestino(String destino) {this.destino = destino;}
+    public void setDestino(String destine) {this.destino = destine;}
 
     public String getTelefono() {return telefono;}
 

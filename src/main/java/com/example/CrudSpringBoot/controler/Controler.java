@@ -1,14 +1,12 @@
 package com.example.CrudSpringBoot.controler;
 import com.example.CrudSpringBoot.interfaceService.IClienteService;
 import com.example.CrudSpringBoot.modelo.Cliente;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
@@ -21,32 +19,38 @@ public class Controler {
     @Autowired
     private IClienteService service;
 
+@GetMapping("/inicio")
+public String agregar(Model model){
+    return "interface";
+}
+
+
 
     @GetMapping("/listar")
     public String listar(Model model){
-        List<Cliente>personas= service.listar();
-        model.addAttribute("personas", personas);
+        List<Cliente>cliente= service.listar();
+        model.addAttribute("cliente", cliente);
         return "index";
     }
 
-    @GetMapping("/new")
-    public String agregar(Model model){
-        model.addAttribute("persona", new Cliente());
-        return "form";
+    @GetMapping("/VentaBoleto")
+    public String agregar1(Model model){
+        model.addAttribute("cliente", new Cliente());
+        return "ventaBoleto";
     }
 
     @PostMapping("/save")
     public String save(@Validated Cliente c){
         service.save(c);
-        return "redirect:/listar";
+        return "redirect:/inicio";
     }
 
     @GetMapping("/editar/{id}")
     public String editar(@PathVariable int id, Model model){
         Optional<Cliente> cliente = service.listarId(id);
 
-        model.addAttribute("persona", cliente);
-        return "form";
+        model.addAttribute("cliente", cliente);
+        return "ventaBoleto";
     }
 
     @GetMapping("/eliminar/{id}")

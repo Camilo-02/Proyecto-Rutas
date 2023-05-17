@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:href="http://www.w3.org/1999/xhtml">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -28,36 +28,44 @@
 
 <div class="container mt-4">
   <h3 class="text-center mb-4">Venta de Boletas</h3>
-  <form action="#" method="POST">
+  <form action="@{/save}" th:object="${cliente}" method="POST">
     <div class="form-group">
-      <label for="nombre">Nombre Completo:</label>
-      <input type="text" class="form-control" id="nombre" name="nombre" required>
+      <label>ID</label>
+      <input th:field="*{id}" type="text" class="form-control" required>
     </div>
     <div class="form-group">
-      <label for="lugar_destino">Destino:</label>
-      <select class="form-control" id="lugar_destino" name="lugar_destino" required>
-        <option value="">Seleccionar</option>
+      <label>Nombre y Apellidos</label>
+      <input th:field="*{name}" type="text" class="form-control" required>
+    </div>
+    <div class="form-group">
+      <label>Destino:</label>
+      <select th:field="*{destino}"class="form-slect" id="destino"  required>
+        <option value="" disabled selected hidden="">Seleccionar</option>
         <option value="tarjeta">Ibague</option>
         <option value="tarjeta">Garzon</option>
         <option value="tarjeta">Bogota</option>
       </select>
     </div>
     <div class="form-group">
-      <label for="telefono">Teléfono:</label>
-      <input type="tel" class="form-control" id="telefono" name="telefono" required>
+      <label>telefono</label>
+      <input th:field="*{telefono}" type="text" class="form-control"required>
     </div>
     <div class="form-group">
-      <label for="num_boletas">Número de Boletas:</label>
-      <input type="number" class="form-control" id="num_boletas" name="num_boletas" min="1" max="10" required>
-    </div>
+        <label>Cantidad de Boletas</label>
+      <input th:field="*{boleto}" type="text" class="form-control"  min="1" max="50" required>
+      </div>
     <div class="form-group">
-      <label for="metodo_pago">Método de Pago:</label>
-      <select class="form-control" id="metodo_pago" name="metodo_pago" required>
-        <option value="tarjeta">Efectivo</option>
+      <label>Método de Pago:</label>
+      <select th:field="*{metodo}" class="form-control" id="metodo " required>
+        <option value="" disabled selected hidden="">METODO DE PAGO</option>
+        <option value="EFECTIVO">EFECTIVO</option>
+        <option value="TARGETA DE DEBITO">TARGETA DE DEBITO</option>
+        <option value="TARGETA DE CREDITO">TARGETA DE CREDITO</option>
       </select>
     </div>
-    <div>
-      <button>comprar</button>
+    <div class="card-footer">
+      <input type="submit" value="Guardar" class="btn btn-success">
+      <a th:href="@{/inicio}" class="btn btn-warning">Atras</a>
     </div>
   </form>
 </div>

@@ -1,13 +1,13 @@
-package com.example.CrudSpringBoot;
+package com.example.Rutas;
 
 		import org.springframework.boot.SpringApplication;
 		import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class CrudSpringBootApplication {
+public class RutasApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(CrudSpringBootApplication.class, args);
+		SpringApplication.run(RutasApplication.class, args);
 	}
 
 }

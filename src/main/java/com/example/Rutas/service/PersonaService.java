@@ -40,4 +40,9 @@ public class PersonaService implements IPersonaService {
     public void delete(int id) {
             data.deleteById(id);
     }
+
+    @Override
+    public void deleteAll(int id){data.findAll();}
+
 }
+

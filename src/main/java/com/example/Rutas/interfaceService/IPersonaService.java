@@ -14,4 +14,5 @@ public interface IPersonaService {
     public int save (Persona p);
     public void delete(int id);
 
+    void deleteAll(int id);
 }

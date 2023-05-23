@@ -8,10 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
@@ -48,25 +45,6 @@ public class Controler {
         model.addAttribute("personas", personas);
         return "index";
     }
-
-
-
-
-    @GetMapping("/escopeta")
-    public String agregar4(Model model){
-        model.addAttribute("persona", new Persona());
-        return "Escopeta";
-    }
-    @GetMapping("/municion")
-    public String agregar5(Model model){
-        model.addAttribute("persona", new Persona());
-        return "municion";
-    }
-    @GetMapping("/pistola")
-    public String agregar6(Model model){
-        model.addAttribute("persona", new Persona());
-        return "pistola";
-    }
     @GetMapping("/formulario")
     public String agregar7(Model model){
         model.addAttribute("persona", new Persona());
@@ -96,7 +74,11 @@ public class Controler {
         service.delete(id);
         return "redirect:/listar";
     }
+    //Eliminar 
 
-
-
+    @DeleteMapping("/eliminarTodo/")
+    public String deleteAll(@PathVariable int id){
+        service.deleteAll(id);
+        return "redirect:/listar";
+    }
 }
